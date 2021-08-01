@@ -3,6 +3,7 @@ using System.IO;
 using SolidDesignPrinciples.OpenClosedPrinciple;
 using SolidDesignPrinciples.SingleResponsiblity;
 using SolidDesignPrinciples.LiskovSubstitutionPrinciple;
+using SolidDesignPrinciples.InterfaceSegregationPrinciple;
 
 namespace SolidDesignPrinciples
 {
@@ -12,11 +13,13 @@ namespace SolidDesignPrinciples
         {
             try
             {
-                int[] arr ={ 1, 2, 3, 4, 5, 6 };
-                Calculator sum = new SumCalculate(arr);
-                Console.WriteLine($"Sum of array = {sum.CalculateSum()}");
-                Calculator evenSum = new EvenSumCalculate(arr);
-                Console.WriteLine($"The sum of even num in arr = {evenSum.CalculateSum()}");
+                string content = "asdfafg";
+                HpLaserJet hp = new HpLaserJet();
+                hp.PrintContent(content+ " hp");
+                hp.PrintDuplexContent(content + " hp");
+                Cannon c = new Cannon();
+                c.PrintContent(content+" cannon");
+                c.CopyContent(content + " cannon");
             }
             catch(Exception ex)
             {
