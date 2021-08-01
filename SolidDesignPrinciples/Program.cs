@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using SolidDesignPrinciples.OpenClosedPrinciple;
 using SolidDesignPrinciples.SingleResponsiblity;
 
 namespace SolidDesignPrinciples
@@ -10,20 +11,15 @@ namespace SolidDesignPrinciples
         {
             try
             {
-                string path = @"C:\Users\diwakar.n\source\repos\SolidDesignPrinciples\SolidDesignPrinciples\SingleResponsiblity\srp.txt";
-                string fileContents = File.ReadAllText(path);
-                string[] arr = fileContents.Split(",");
-                ListOperations lo = new ListOperations();
-                foreach (string i in arr)
-                {
-                    lo.list.Add(i);
-                }
-                lo.AddEntry("Gate");
-                lo.RemoveItem("apple");
-                lo.SaveToFile(path);
-                Console.WriteLine("Done");
+                double sal;
+                JuniorDev jd = new JuniorDev();
+                sal = jd.CalculateSalary();
+                Console.WriteLine($" junior dev Salary = {sal}");
+                SeniorDev sd = new SeniorDev();
+                sal = sd.CalculateSalary();
+                Console.WriteLine($" Senior dev Salary = {sal}");
             }
-            catch(FileNotFoundException ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
