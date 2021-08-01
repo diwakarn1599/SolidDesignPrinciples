@@ -2,6 +2,7 @@
 using System.IO;
 using SolidDesignPrinciples.OpenClosedPrinciple;
 using SolidDesignPrinciples.SingleResponsiblity;
+using SolidDesignPrinciples.LiskovSubstitutionPrinciple;
 
 namespace SolidDesignPrinciples
 {
@@ -11,13 +12,11 @@ namespace SolidDesignPrinciples
         {
             try
             {
-                double sal;
-                JuniorDev jd = new JuniorDev();
-                sal = jd.CalculateSalary();
-                Console.WriteLine($" junior dev Salary = {sal}");
-                SeniorDev sd = new SeniorDev();
-                sal = sd.CalculateSalary();
-                Console.WriteLine($" Senior dev Salary = {sal}");
+                int[] arr ={ 1, 2, 3, 4, 5, 6 };
+                Calculator sum = new SumCalculate(arr);
+                Console.WriteLine($"Sum of array = {sum.CalculateSum()}");
+                Calculator evenSum = new EvenSumCalculate(arr);
+                Console.WriteLine($"The sum of even num in arr = {evenSum.CalculateSum()}");
             }
             catch(Exception ex)
             {
